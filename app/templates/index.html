@@ -1,34 +1,27 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--<meta charset="utf-8">-->
-<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--<meta name="description" content="Kennedy Family Recipe App">-->
-<!--<meta name="author" content="Patrick Kennedy">-->
-<!--<title>{{ title }} - Micrblog</title>-->
-<!--<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">-->
-<!--</head>-->
-<!--<body>-->
-<!--    <h1>Hello, {{ user.username }}!</h1>-->
-<!--</body>-->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ user.username }}!</h1>
+    {% for post in posts %}
+    <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
+    {% endfor %}
+{% endblock %}
+
+
+<!--<!doctype html>-->
+
+<!--<html>-->
+<!--    <head>-->
+<!--        {% if title %}-->
+<!--        <title>{{ title }} - Micrblog</title>-->
+<!--        {% else %}-->
+<!--        <title>{{ title }} - Micrblog</title>-->
+<!--        {% endif %}-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <h1>Hi, {{ user.username }}!</h1>-->
+<!--        {% for post in posts %}-->
+<!--        <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>-->
+<!--        {% endfor %}-->
+<!--    </body>-->
 <!--</html>-->
-
-
-<!doctype html>
-
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }} - Micrblog</title>
-        {% else %}
-        <title>{{ title }} - Micrblog</title>
-        {% endif %}
-    </head>
-    <body>
-        <h1>Hi, {{ user.username }}!</h1>
-        {% for post in posts %}
-        <div><p>{{ post.author.username }} says: <b>{{ post.body }}</b></p></div>
-        {% endfor %}
-    </body>
-</html>
